@@ -19,7 +19,8 @@ app.post('/generate-reasons', async (req, res) => {
 
   try {
     const results = await Promise.all(goals.map(async goal => {
-      const prompt = `Give me 3 motivational reasons why someone would want to ${goal}. Respond in bullet points.`;
+     const prompt = `Give me exactly 2 short, first-person, hypnotic affirmations to support the goal: "${goal}". Do not number or bullet them. Make them sound calm, confident, and soothing.`;
+
 
       const completion = await openai.chat.completions.create({
         model: "gpt-3.5-turbo",
